@@ -1,0 +1,70 @@
+name: Problème de sécurité
+description: Signaler un problème relatif à la sécurité du projet
+type: Security
+body:
+  - type: checkboxes
+    id: security-existing-issue
+    attributes:
+      label: Incident déjà signalé ?
+      description: >-
+        Merci de vérifier qu'aucune issue présentement ouverte
+        ne signale déjà ce problème.
+      options:
+        - label: Ceci est un nouvel incident
+          required: true
+  - type: input
+    id: security-requester
+    attributes:
+      label: Demandeur
+      description: Nom et organisation
+      placeholder: Prénom NOM - Organisation
+  - type: textarea
+    id: security-description
+    attributes:
+      label: Description
+      description: Description détaillée du problème
+      placeholder: Le contexte dans lequel le problème se manifeste
+    validations:
+      required: true
+  - type: textarea
+    id: security-impact
+    attributes:
+      label: Impact
+      description: Description de l'impact du problème
+      placeholder: Le contexte, ce qui constitue le problème, et ses causes
+    validations:
+      required: true
+  - type: textarea
+    id: security-reproduction
+    attributes:
+      label: Reproduction du problème
+      description: Liste des étapes permettant de reproduire le problème
+      placeholder: >-
+        Les modalités selon lesquelles un opérateur de test ou un utilisateur
+        final reproduit le problème
+    validations:
+      required: true
+  - type: textarea
+    id: security-specs
+    attributes:
+      label: Environnement
+      description: Spécifications de l'environnement
+      placeholder: >-
+        Les informations sur le système ou le navigateur
+        dans lequel le problème se produit, si pertinent
+  - type: textarea
+    id: security-additional-context
+    attributes:
+      label: Annexe
+      description: Précisions supplémentaires ou documents de référence
+      placeholder: >-
+        Les informations supplémentaires non applicables
+        aux champs ci-dessus
+  - type: textarea
+    id: security-solutions
+    attributes:
+      label: Solution proposée
+      description: Solution proposée, si elle existe
+      placeholder: >-
+        Une solution possible au moment de la rédaction de la rédaction
+        de la demande.

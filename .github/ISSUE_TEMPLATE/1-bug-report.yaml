@@ -1,0 +1,92 @@
+name: Rapport de bug
+description: Signaler un incident ou un bug
+type: "Bug"
+body:
+  - type: checkboxes
+    id: bug-existing-issue
+    attributes:
+      label: Incident déjà signalé ?
+      description: >-
+        Merci de vérifier qu'aucune issue présentement ouverte
+        ne signale déjà ce problème.
+      options:
+        - label: Ceci est un nouvel incident
+          required: true
+  - type: input
+    id: bug-requester
+    attributes:
+      label: Demandeur
+      description: Nom et organisation
+      placeholder: Prénom NOM - Organisation
+    validations:
+      required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Description
+      description: Description détaillée du problème
+      placeholder: >-
+        Le contexte, ce qui constitue le problème, ses éventuelles causes
+        et l'impact actuel
+    validations:
+      required: true
+  - type: textarea
+    id: bug-reproduction
+    attributes:
+      label: Reproduction du problème
+      description: Liste des étapes permettant de reproduire le problème
+      placeholder: >-
+        Les modalités selon lesquelles un opérateur de test ou un utilisateur
+        final reproduit le problème
+    validations:
+      required: true
+  - type: textarea
+    id: bug-current-behavior
+    attributes:
+      label: Comportement actuel
+      description: >-
+        Description du comportement actuel après la réalisation des étapes de
+        reproduction
+      placeholder: >-
+        Les modalités selon lesquelles le système se comporte
+        après qu'un opérateur de test ou un utilisateur final a réalisé
+        les étapes de reproduction.
+    validations:
+      required: true
+  - type: textarea
+    id: bug-expected-behavior
+    attributes:
+      label: Comportement attendu
+      description: >-
+        Description du comportement attendu après la réalisation des étapes de
+        reproduction
+      placeholder: >-
+        Les modalités selon lesquelles le système se comporte
+        après qu'un opérateur de test ou un utilisateur final a réalisé
+        les étapes de reproduction.
+    validations:
+      required: true
+  - type: textarea
+    id: bug-demonstration
+    attributes:
+      label: Démonstration visuelle
+      description: Captures d'écran ou vidéos démontrant le problème
+      placeholder: >-
+        Les éléments graphiques permettant à un intervenant de reproduire ou
+        déterminer avec plus de précision le problème.
+  - type: textarea
+    id: bug-additional-context
+    attributes:
+      label: Annexe
+      description: Précisions supplémentaires ou documents de référence
+      placeholder: >-
+        Les informations supplémentaires non applicables
+        aux champs ci-dessus
+  - type: textarea
+    id: bug-solutions
+    attributes:
+      label: Solution proposée
+      description: Solution proposée, si elle existe
+      placeholder: >-
+        Une solution possible au moment de la rédaction de la rédaction
+        de la demande.

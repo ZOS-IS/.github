@@ -1,0 +1,94 @@
+- name: Nouvelle fonctionnalité
+- description: Demander une nouvelle fonctionnalité
+- type: "Feature"
+body:
+  - type: checkboxes
+    id: feat-existing-issue
+    attributes:
+      label: Fonctionnalité déjà demandée ?
+      description: >-
+        Merci de vérifier qu'aucune issue présentement ouverte
+        ne propose une modification similaire.
+      options:
+        - label: Ceci est une nouvelle demande
+          required: true
+  - type: input
+    id: feat-requester
+    attributes:
+      label: Demandeur
+      description: Nom et organisation
+      placeholder: Prénom NOM - Organisation
+    validations:
+      required: true
+  - type: textarea
+    id: feat-description
+    attributes:
+      label: Description
+      description: Description détaillée de la fonctionnalité
+      placeholder: >-
+        Les raisons pour lesquelles cette fonctionnalité est nécessaire
+        et ses caractéristiques principales
+    validations:
+      required: true
+  - type: textarea
+    id: feat-reproduction
+    attributes:
+      label: Modalités d'accès
+      description: >-
+        Liste des étapes permettant d'accéder à la fonctionnalité
+      placeholder: >-
+        Les modalités selon lesquelles un opérateur de test ou un utilisateur
+        final accède à la fonctionnalité
+    validations:
+      required: true
+  - type: textarea
+    id: feat-expected-behavior
+    attributes:
+      label: Comportement attendu
+      description: >-
+        Description du comportement attendu
+        après la réalisation de la fonctionnalité
+      placeholder: >-
+        Les modalités selon lesquelles le système se comporte
+        après qu'un opérateur de test ou un utilisateur final a réalisé
+        les étapes d'accès à la fonctionnalité.
+    validations:
+      required: true
+  - type: textarea
+    id: feat-fonctional-constraints
+    attributes:
+      label: Contraintes
+      description: >-
+        Contraintes techniques ou fonctionnelles attendues
+        lors de la réalisation
+      placeholder: >-
+        Les éventuelles contraintes anticipées
+        auxquelles porter attention
+  - type: textarea
+    id: feat-success
+    attributes:
+      label: Critères de réussite
+      description: >-
+        Critères permettant d'indiquer que la fonctionnalité
+        est finalisée
+      placeholder: >-
+        Liste des critères permettant de répondre à la demande et de considérer
+        la fonctionnalité comme finalisée
+    validations:
+      required: true
+  - type: textarea
+    id: feat-additional-context
+    attributes:
+      label: Annexe
+      description: Précisions supplémentaires ou documents de référence
+      placeholder: >-
+        Les informations supplémentaires non applicables
+        aux champs ci-dessus
+  - type: textarea
+    id: feat-solutions
+    attributes:
+      label: Solution proposée
+      description: Solution proposée, si elle existe
+      placeholder: >-
+        Une solution possible au moment de la rédaction de la rédaction
+        de la demande.
