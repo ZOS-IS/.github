@@ -22,3 +22,9 @@ Les modèles d'issues doivent être déposés dans `./.github/PULL_REQUEST_TEMPL
 
 ### Édition du modèle de Pull Request
 Le modèle doit être rédigé au format Markdown.
+
+---
+
+## Documentation
+
+La documentation officielle des dépôts communautaires comme celui est disponible en suivant [ce lien](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
