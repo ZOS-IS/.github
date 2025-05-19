@@ -3,7 +3,11 @@ Dépôt GitHub de l'organisation ZOS-IS, hébergeant les fichiers communs à tou
 
 ## Modèles d'issues
 
-Les modèles d'issues déposés dans ce dépôt sont partagés à tous les dépôts GitHub de l'organisation *ZOS-IS*. Un modèle déposé directement dans un dépôt écrase un modèle disponible dans le présent dépôt, **s'il existe déjà**.
+Les modèles d'issues déposés dans ce dépôt sont partagés à tous les dépôts GitHub de l'organisation *ZOS-IS*.
+
+> 💡
+>
+> Un dépôt fournissant au moins un modèle d'issues ignore totalement les modèles disponibles dans ce dépôt communautaire.
 
 ### Emplacement
 Les modèles d'issues doivent être déposés dans `./.github/ISSUE_TEMPLATE`.
@@ -15,7 +19,11 @@ Les modèles d'issues utilisent le format « *issue forms* », dont la documenta
 
 ## Modèle de Pull Request
 
-Le modèle de Pull Request déposé dans ce dépôt est partagé à tous les dépôts GitHub de l'organisation *ZOS-IS*. Un modèle déposé directement dans un dépôt écrase **toujours** le modèle disponible dans le présent dépôt.
+Le modèle de Pull Request déposé dans ce dépôt est partagé à tous les dépôts GitHub de l'organisation *ZOS-IS*.
+
+> 💡
+>
+> Un dépôt fournissant au moins un modèle de pull request ignore totalement les modèles disponibles dans ce dépôt communautaire.
 
 ### Emplacement
 Les modèles d'issues doivent être déposés dans `./.github/PULL_REQUEST_TEMPLATE.md`.
