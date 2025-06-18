@@ -1,0 +1,15 @@
+name: Rebase develop on main
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  rebase:
+    uses: ZOS-IS/ToolBox/.github/workflows/sync-branches-using-rebase.yml@main
+    with:
+      source_branch: develop
+      target_branch: main
+    secrets: inherit

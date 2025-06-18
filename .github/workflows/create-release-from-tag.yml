@@ -1,0 +1,14 @@
+name: Create release from tag
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+      - '*.*.*'
+
+jobs:
+  release:
+    uses: ZOS-IS/ToolBox/.github/workflows/create-release-object-and-pr-from-new-tag.yml@main
+    with:
+      tag_name: ${{ github.ref_name }}
+    secrets: inherit

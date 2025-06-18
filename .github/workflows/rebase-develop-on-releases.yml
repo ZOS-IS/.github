@@ -1,0 +1,27 @@
+name: Rebase develop on release/**
+
+on:
+  push:
+    branches:
+      - release/**
+  workflow_dispatch:
+
+jobs:
+  rebase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract target branch name
+        id: branch
+        run: |
+          echo "target_branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+
+    outputs:
+      target_branch: ${{ steps.branch.outputs.target_branch }}
+
+  call-reusable-rebase:
+    needs: rebase
+    uses: ZOS-IS/ToolBox/.github/workflows/sync-branches-using-rebase.yml@main
+    with:
+      source_branch: develop
+      target_branch: ${{ needs.rebase.outputs.target_branch }}
+    secrets: inherit
