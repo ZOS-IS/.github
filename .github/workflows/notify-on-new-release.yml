@@ -1,0 +1,17 @@
+name: Send Slack message in releases channel on new release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify:
+    uses: ZOS-IS/ToolBox/.github/workflows/reusable-notify-send_notification_slack.yml@main
+    with:
+      slack_channel: "releases"
+      title: "Nouvelle release publiée"
+      message: |
+        *Dépôt* : ${{ github.event.repository.name }}
+        *Version*: ${{ github.event.release.tag_name }}
+        *Notes de changement*: <${{ github.event.release.html_url }}>
+    secrets: inherit

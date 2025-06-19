@@ -1,0 +1,42 @@
+name: Send Slack message in dev channel on conflict
+
+on:
+  pull_request:
+    types: [synchronize, reopened, opened]
+
+jobs:
+  check-conflict:
+    runs-on: ubuntu-latest
+    outputs:
+      has_conflict: ${{ steps.check.outputs.has_conflict }}
+    steps:
+      - name: Check PR mergeability
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number
+            });
+
+            const status = pr.data.mergeable_state;
+            console.log(`Mergeable state: ${status}`);
+            return status === "dirty" ? "true" : "false";
+          result-encoding: string
+          result-attribute: has_conflict
+
+  notify-conflict:
+    if: needs.check-conflict.outputs.has_conflict == 'true'
+    needs: check-conflict
+    uses: ZOS-IS/ToolBox/.github/workflows/reusable-notify-send_notification_slack.yml@main
+    with:
+      slack_channel: "dev"
+      title: "Conflit détecté dans une pull request"
+      message: |
+        *Titre*: ${{ github.event.pull_request.title }}
+        *Dépôt* : ${{ github.event.repository.name }}
+        *Lien* : <${{ github.event.pull_request.html_url }}>
+        *Auteur*: <https://github.com/${{ github.event.pull_request.user.login }}>
+    secrets: inherit
