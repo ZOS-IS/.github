@@ -1,0 +1,46 @@
+name: Notify via Slack and email on deployment
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  notify:
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release/')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notify on Slack
+        uses: ZOS-IS/ToolBox/.github/workflows/reusable-notify-send_notification_slack.yml@main
+        with:
+          slack_channel: "deployments"
+          title: "Nouvelle version logicielle déployée"
+          message: |
+            *Projet* : ${{ github.event.repository.name }}
+
+            Notes de changement :
+            ---
+            ${{ github.event.pull_request.body }}
+            ---
+        secrets: inherit
+
+      - name: Notify by Email
+        uses: ZOS-IS/ToolBox/.github/workflows/reusable-notify-send_notification_email.yml@main
+        with:
+          recipients: "support.info@zos-informationsystem.com,"
+          subject: "Nouvelle version logicielle déployée"
+          body: |
+            Bonjour,
+
+            Un nouveau déploiement vient d'avoir lieu en production sur le projet : ${{ github.event.repository.name }}.
+
+            Notes de changement :
+            ---
+            ${{ github.event.pull_request.body }}
+            ---
+
+            Bien cordialement,
+            ——
+            L'équipe i-GEIA
+        secrets: inherit

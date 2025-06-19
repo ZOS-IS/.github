@@ -1,0 +1,18 @@
+name: Send Slack message in dev-pull-requests channel on new pull request
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  notify:
+    uses: ZOS-IS/ToolBox/.github/workflows/reusable-notify-send_notification_slack.yml@main
+    with:
+      slack_channel: "dev-pull-requests"
+      title: "Nouvelle pull request soumise"
+      message: |
+        *Dépôt* : ${{ github.event.repository.name }}
+        *Titre* : ${{ github.event.pull_request.title }}
+        *Auteur* : ${{ github.event.pull_request.user.login }}
+        *Lien* : <${{ github.event.pull_request.html_url }}>
+    secrets: inherit
