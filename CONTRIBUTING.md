@@ -26,8 +26,6 @@ Pour assurer un changelog clair et lisible automatiquement, **merci de nommer vo
 | `STYLE`    | Formatage ou amélioration visuelle                 |
 | `PERF`     | Optimisation des performances                      |
 
----
-
 >💡
 >
 > **Ce titre sera utilisé dans le changelog !**  
