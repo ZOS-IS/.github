@@ -8,7 +8,7 @@ on:
 
 jobs:
   rebase:
-    uses: ZOS-IS/ToolBox/.github/workflows/sync-branches-using-rebase.yml@main
+    uses: ZOS-IS/ToolBox/.github/workflows/reusable-releases-sync_branches_using_rebase.yml@main
     with:
       source_branch: develop
       target_branch: main
