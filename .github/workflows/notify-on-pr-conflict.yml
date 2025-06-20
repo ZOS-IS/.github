@@ -1,4 +1,4 @@
-name: Send Slack message in dev channel on conflict
+name: Send Slack message on conflict ('dev-pull-requests' channel)
 
 on:
   pull_request:
@@ -23,16 +23,16 @@ jobs:
 
             const status = pr.data.mergeable_state;
             console.log(`Mergeable state: ${status}`);
-            return status === "dirty" ? "true" : "false";
-          result-encoding: string
-          result-attribute: has_conflict
+
+            const hasConflict = status === "dirty";
+            core.setOutput("has_conflict", hasConflict.toString());
 
   notify-conflict:
     if: needs.check-conflict.outputs.has_conflict == 'true'
     needs: check-conflict
     uses: ZOS-IS/ToolBox/.github/workflows/reusable-notify-send_notification_slack.yml@main
     with:
-      slack_channel: "dev"
+      slack_channel: "dev-pull-requests"
       title: "Conflit détecté dans une pull request"
       message: |
         *Titre*: ${{ github.event.pull_request.title }}
