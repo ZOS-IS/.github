@@ -1,4 +1,4 @@
-name: Send Slack message in dev-pull-requests channel on new pull request
+name: Send Slack message on new pull request ('dev-pull-requests' channel)
 
 on:
   pull_request:

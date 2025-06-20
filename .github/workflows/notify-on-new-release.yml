@@ -1,4 +1,4 @@
-name: Send Slack message in releases channel on new release
+name: Send Slack message on new release ('releases' channel)
 
 on:
   release:
