@@ -1,6 +1,6 @@
-- name: Nouvelle fonctionnalité
-- description: Demander une nouvelle fonctionnalité
-- type: "Feature"
+name: Nouvelle fonctionnalité
+description: Demander une nouvelle fonctionnalité
+type: "Feature"
 body:
   - type: checkboxes
     id: feat-existing-issue
