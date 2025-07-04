@@ -2,10 +2,13 @@ name: Send Slack message on new pull request ('dev-pull-requests' channel)
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, ready_for_review]
 
 jobs:
   notify:
+    if: >
+      ((github.event.action == 'opened' && github.event.pull_request.draft == false) || (github.event.action == 'ready_for_review'))
+      && (!contains(github.event.pull_request.title, '[SKIP-NOTICE]'))
     uses: ZOS-IS/ToolBox/.github/workflows/reusable-notify-send_notification_slack.yml@main
     with:
       slack_channel: "dev-pull-requests"
