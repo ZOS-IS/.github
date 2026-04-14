@@ -3,7 +3,7 @@ description: Demander une nouvelle fonctionnalité
 type: "Feature"
 body:
   - type: checkboxes
-    id: feat-existing-issue
+    id: feat_existing_issue
     attributes:
       label: Fonctionnalité déjà demandée ?
       description: >-
@@ -13,7 +13,7 @@ body:
         - label: Ceci est une nouvelle demande
           required: true
   - type: input
-    id: feat-requester
+    id: feat_requester
     attributes:
       label: Demandeur
       description: Nom et organisation
@@ -21,7 +21,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: feat-description
+    id: feat_description
     attributes:
       label: Description
       description: Description détaillée de la fonctionnalité
@@ -31,7 +31,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: feat-reproduction
+    id: feat_reproduction
     attributes:
       label: Modalités d'accès
       description: >-
@@ -42,7 +42,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: feat-expected-behavior
+    id: feat_expected_behavior
     attributes:
       label: Comportement attendu
       description: >-
@@ -55,7 +55,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: feat-fonctional-constraints
+    id: feat_fonctional_constraints
     attributes:
       label: Contraintes
       description: >-
@@ -65,7 +65,7 @@ body:
         Les éventuelles contraintes anticipées
         auxquelles porter attention
   - type: textarea
-    id: feat-success
+    id: feat_success
     attributes:
       label: Critères de réussite
       description: >-
@@ -77,7 +77,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: feat-additional-context
+    id: feat_additional_context
     attributes:
       label: Annexe
       description: Précisions supplémentaires ou documents de référence
@@ -85,7 +85,7 @@ body:
         Les informations supplémentaires non applicables
         aux champs ci-dessus
   - type: textarea
-    id: feat-solutions
+    id: feat_solutions
     attributes:
       label: Solution proposée
       description: Solution proposée, si elle existe
