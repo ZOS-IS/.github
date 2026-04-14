@@ -1,0 +1,38 @@
+name: Backlog
+description: Capturer une idée pour étude ultérieure
+type: "Backlog"
+body:
+  - type: dropdown
+    id: backlog_origin
+    attributes:
+      label: Origine
+      description: Source du besoin
+      options:
+        - Demande client
+        - Retour utilisateur
+        - Bug ou anomalie
+        - Initiative interne
+    validations:
+      required: true
+  - type: input
+    id: backlog_reference
+    attributes:
+      label: Référence externe
+      description: Lien vers ticket, discussion ou contexte d'origine
+      placeholder: https://zammad.zos-informationsystem.com/#ticket/zoom/{ticket_number}
+    validations:
+      required: true
+  - type: textarea
+    id: backlog_idea
+    attributes:
+      label: Idée
+      description: Courte description du besoin ou du problème
+    validations:
+      required: true
+  - type: textarea
+    id: backlog_why
+    attributes:
+      label: Pourquoi est-ce important ?
+      description: Pourquoi faut-il étudier cette idée ?
+    validations:
+      required: false

@@ -3,7 +3,7 @@ description: Signaler un incident ou un bug
 type: "Bug"
 body:
   - type: checkboxes
-    id: bug-existing-issue
+    id: bug_existing_issue
     attributes:
       label: Incident déjà signalé ?
       description: >-
@@ -13,7 +13,7 @@ body:
         - label: Ceci est un nouvel incident
           required: true
   - type: input
-    id: bug-requester
+    id: bug_requester
     attributes:
       label: Demandeur
       description: Nom et organisation
@@ -21,7 +21,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: bug-description
+    id: bug_description
     attributes:
       label: Description
       description: Description détaillée du problème
@@ -31,7 +31,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: bug-reproduction
+    id: bug_reproduction
     attributes:
       label: Reproduction du problème
       description: Liste des étapes permettant de reproduire le problème
@@ -41,7 +41,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: bug-current-behavior
+    id: bug_current_behavior
     attributes:
       label: Comportement actuel
       description: >-
@@ -54,7 +54,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: bug-expected-behavior
+    id: bug_expected_behavior
     attributes:
       label: Comportement attendu
       description: >-
@@ -67,7 +67,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: bug-demonstration
+    id: bug_demonstration
     attributes:
       label: Démonstration visuelle
       description: Captures d'écran ou vidéos démontrant le problème
@@ -75,7 +75,7 @@ body:
         Les éléments graphiques permettant à un intervenant de reproduire ou
         déterminer avec plus de précision le problème.
   - type: textarea
-    id: bug-additional-context
+    id: bug_additional_context
     attributes:
       label: Annexe
       description: Précisions supplémentaires ou documents de référence
@@ -83,7 +83,7 @@ body:
         Les informations supplémentaires non applicables
         aux champs ci-dessus
   - type: textarea
-    id: bug-solutions
+    id: bug_solutions
     attributes:
       label: Solution proposée
       description: Solution proposée, si elle existe
