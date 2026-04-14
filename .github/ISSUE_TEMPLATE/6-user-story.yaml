@@ -1,0 +1,40 @@
+name: User Story
+description: >-
+  Décris une modification sensible pour l'utilisateur, prévue pour être
+  implantée en un sprint unique
+type: "User story"
+body:
+  - type: input
+    id: user_story_epic
+    attributes:
+      label: Epic
+      description: Référence à l'Epic parente
+    validations:
+      required: true
+  - type: textarea
+    id: user_story_user_need
+    attributes:
+      label: Besoin utilisateur
+      description: Qui a besoin de quoi, et pourquoi
+      placeholder: |
+        En tant que ...
+        Je veux ...
+        Afin de ...
+    validations:
+      required: true
+  - type: textarea
+    id: user_story_acceptance
+    attributes:
+      label: Critères d'acceptation
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: user_story_notes
+    attributes:
+      label: Notes
+      description: Notes optionnelles (contraintes, points d'attention etc.)
+    validations:
+      required: false
