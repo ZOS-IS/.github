@@ -1,0 +1,79 @@
+name: Epic
+description: >-
+  Décrire une initiative produit (Epic) à partir d'un problème clair, d'un
+  objectif défini et d'une valeur attendue. Cette Epic servira de base au
+  découpage en user stories
+type: "Epic"
+body:
+  - type: dropdown
+    id: epic-origin
+    attributes:
+      label: Origine
+      description: Source du besoin
+      options:
+        - Demande client
+        - Retour utilisateur
+        - Bug ou anomalie
+        - Initiative interne
+    validations:
+      required: true
+  - type: input
+    id: epic-reference
+    attributes:
+      label: Référence externe
+      description: Lien vers ticket, discussion ou contexte d'origine
+      placeholder: https://zammad.zos-informationsystem.com/#ticket/zoom/{ticket_number}
+    validations:
+      required: true
+  - type: textarea
+    id: epic-problem
+    attributes:
+      label: Problème
+      description: >-
+        Quel problème cherche-t-on à résoudre ? Pour qui ? Dans quelles
+        circonstances ?
+    validations:
+      required: true
+  - type: textarea
+    id: epic-goal
+    attributes:
+      label: Objectif
+      description: Quel résultat concret veut-on atteindre ?
+    validations:
+      required: true
+  - type: textarea
+    id: epic-impact
+    attributes:
+      label: Impact
+      description: Pourquoi est-ce important ? Quelle valeur ajoutée ?
+    validations:
+      required: true
+  - type: textarea
+    id: epic-scope
+    attributes:
+      label: Portée
+      description: Ce qui est inclus à ce stade
+    validations:
+      required: true
+  - type: textarea
+    id: epic-success
+    attributes:
+      label: Critères de succès
+      description: Comment est mesurée la réussite ?
+    validations:
+      required: true
+  - type: textarea
+    id: epic-stories
+    attributes:
+      label: User stories
+      description: Liste des user stories liées (à compléter progressivement)
+  - type: textarea
+    id: epic-risk
+    attributes:
+      label: Risques
+      description: Points de vigilance, dépendances, zones floues
+  - type: markdown
+    attributes:
+      value: >-
+        This template was generated with [Issue Forms
+        Creator](https://issue-forms-creator.netlify.app)
