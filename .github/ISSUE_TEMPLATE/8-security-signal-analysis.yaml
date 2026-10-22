@@ -1,0 +1,139 @@
+name: Analyse d'un signal de sécurité
+description: >-
+  Investigation formalisée d'une alerte de sécurité (CERT-FR, CVE, éditeur…).
+  À utiliser uniquement lorsqu'une alerte nécessite une analyse tracée.
+title: "[SECURITY] "
+type: Security
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Analyse d'un signal de sécurité
+
+        Ce modèle est réservé aux alertes nécessitant une **investigation formalisée**
+        (ex. : vulnérabilités PHP – Octobre 2026).
+        Renseignez le titre sous la forme `[SECURITY] <Sujet> – <Mois Année>`.
+
+  - type: dropdown
+    id: signal_status
+    attributes:
+      label: Statut
+      options:
+        - Analyse en cours
+        - Qualification terminée
+        - Décision prise
+        - Correctif en cours de déploiement
+        - En attente de validation de clôture
+        - Clôturé
+      default: 0
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Identification"
+  - type: input
+    id: signal_awareness_date
+    attributes:
+      label: Date de connaissance
+      description: Date à laquelle le signal a été porté à notre connaissance
+      placeholder: JJ/MM/AAAA
+    validations:
+      required: true
+  - type: input
+    id: signal_source
+    attributes:
+      label: Source
+      placeholder: CERT-FR, éditeur, CVE…
+    validations:
+      required: true
+  - type: input
+    id: signal_component
+    attributes:
+      label: Composant
+      placeholder: PHP 7
+    validations:
+      required: true
+  - type: input
+    id: signal_device
+    attributes:
+      label: Dispositif concerné
+      description: Laisser « à confirmer » tant que non établi
+      value: à confirmer
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Qualification"
+  - type: dropdown
+    id: signal_applicability
+    attributes:
+      label: Applicabilité
+      options:
+        - Potentiellement concerné
+        - Concerné
+        - Non concerné
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: signal_qualification_notes
+    attributes:
+      label: Éléments de qualification
+      value: Versions installées et exposition à vérifier.
+
+  - type: markdown
+    attributes:
+      value: "## Analyse des risques"
+  - type: textarea
+    id: signal_risk_confidentiality
+    attributes:
+      label: Confidentialité des données
+  - type: textarea
+    id: signal_risk_integrity
+    attributes:
+      label: Intégrité des données médicales
+  - type: textarea
+    id: signal_risk_availability
+    attributes:
+      label: Disponibilité du dispositif
+  - type: textarea
+    id: signal_risk_patient_safety
+    attributes:
+      label: Impact potentiel sur la sécurité des patients
+  - type: textarea
+    id: signal_risk_iso14971
+    attributes:
+      label: Références aux risques ISO 14971
+      description: Identifiants des risques du dossier de gestion des risques concernés
+
+  - type: markdown
+    attributes:
+      value: "## Décision CTO"
+  - type: textarea
+    id: signal_cto_decision
+    attributes:
+      label: Décision
+      description: À renseigner par le CTO
+      placeholder: |
+        Appliquer prioritairement le correctif après vérification de sa provenance et de sa couverture.
+
+        Étudier la migration vers une version maintenue.
+
+  - type: markdown
+    attributes:
+      value: "## Actions"
+  - type: checkboxes
+    id: signal_actions
+    attributes:
+      label: Suivi des actions
+      description: Cochez les actions au fur et à mesure de leur réalisation
+      options:
+        - label: Confirmer les versions installées
+        - label: Évaluer l'exposition
+        - label: Vérifier le correctif
+        - label: Réaliser les tests
+        - label: Déployer
+        - label: Vérifier le risque résiduel
+        - label: Obtenir la validation de clôture
